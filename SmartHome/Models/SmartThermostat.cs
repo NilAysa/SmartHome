@@ -8,23 +8,23 @@ namespace SmartHome.Models
 {
     public class SmartThermostat : SmartDevice
     {
-        public double Temperature { get; private set; }
+        public double temperatura { get; private set; }
 
-        public SmartThermostat(string name, double initialTemp) : base(name)
+        public SmartThermostat(string naziv, double inicijalnaTemp) : base(naziv)
         {
-            Temperature = initialTemp;
+            temperatura = inicijalnaTemp;
         }
 
         public void SetTemperature(double temp)
         {
             if (IsOn)
             {
-                Temperature = temp;
-                Console.WriteLine($"{Name} termostat podešen na {Temperature}°C.");
+                temperatura = temp;
+                Console.WriteLine($"{nazivUredjaja} termostat podešen na {temperatura}°C.");
             }
             else
             {
-                Console.WriteLine($"Termostat {Name} je isključen.");
+                Console.WriteLine($"Termostat {nazivUredjaja} je isključen.");
             }
         }
     }

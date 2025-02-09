@@ -8,7 +8,7 @@ namespace SmartHome.Models
 {
     public interface ISensor
     {
-        string SensorType { get; }
+        string tipSenzora { get; }
         double GetValue();
     }
 }

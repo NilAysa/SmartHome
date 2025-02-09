@@ -8,7 +8,7 @@ namespace SmartHome.Models
 {
     public interface IDevice
     {
-        string Name { get; }
+        string nazivUredjaja { get; }
         bool IsOn { get; }
         void TurnOn();
         void TurnOff();

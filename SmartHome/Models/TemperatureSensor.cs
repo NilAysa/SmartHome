@@ -8,7 +8,7 @@ namespace SmartHome.Models
 {
     public class TemperatureSensor : ISensor
     {
-        public string SensorType => "Temperature";
+        public string tipSenzora => "Temperatura";
         private Random random = new Random();
 
         public double GetValue()

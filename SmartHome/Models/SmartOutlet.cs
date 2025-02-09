@@ -8,20 +8,20 @@ namespace SmartHome.Models
 {
     public class SmartOutlet : SmartDevice
     {
-        public double PowerConsumption { get; private set; }
+        public double potrosnja { get; private set; }
 
-        public SmartOutlet(string name) : base(name) { }
+        public SmartOutlet(string naziv) : base(naziv) { }
 
-        public void SetPowerConsumption(double power)
+        public void SetPowerConsumption(double snaga)
         {
             if (IsOn)
             {
-                PowerConsumption = power;
-                Console.WriteLine($"{Name} troši {PowerConsumption}W.");
+                potrosnja = snaga;
+                Console.WriteLine($"{nazivUredjaja} troši {potrosnja}W.");
             }
             else
             {
-                Console.WriteLine($"{Name} je isključen i ne troši struju.");
+                Console.WriteLine($"{nazivUredjaja} je isključen i ne troši struju.");
             }
         }
     }

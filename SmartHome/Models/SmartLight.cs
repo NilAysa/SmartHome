@@ -8,14 +8,14 @@ namespace SmartHome.Models
 {
     public class SmartLight : SmartDevice
     {
-        public int Brightness { get; private set; } = 100;
+        public int osvijetljenost { get; private set; } = 100;
 
         public SmartLight(string name) : base(name) { }
 
         public void SetBrightness(int level)
         {
-            Brightness = Math.Clamp(level, 0, 100);
-            Console.WriteLine($"{Name} svjetlo podešeno na {Brightness}% osvjetljenja.");
+            osvijetljenost = Math.Clamp(level, 0, 100);
+            Console.WriteLine($"{nazivUredjaja} svjetlo podešeno na {osvijetljenost}% osvjetljenja.");
         }
     }
 }

@@ -8,31 +8,31 @@ namespace SmartHome.Models
 {
     public abstract class SmartDevice : ISmartDevice
     {
-        public string Name { get; protected set; }
+        public string nazivUredjaja { get; protected set; }
         public bool IsOn { get; protected set; }
 
         protected SmartDevice(string name)
         {
-            Name = name;
+            nazivUredjaja = name;
             IsOn = false;
         }
 
         public virtual void TurnOn()
         {
             IsOn = true;
-            Console.WriteLine($"{Name} je uključen.");
+            Console.WriteLine($"{nazivUredjaja} je uključen.");
         }
 
         public virtual void TurnOff()
         {
             IsOn = false;
-            Console.WriteLine($"{Name} je isključen.");
+            Console.WriteLine($"{nazivUredjaja} je isključen.");
         }
 
         public virtual void ResetDevice()
         {
             TurnOff();
-            Console.WriteLine($"{Name} je resetovan.");
+            Console.WriteLine($"{nazivUredjaja} je resetovan.");
         }
     }
 }

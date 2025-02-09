@@ -1,6 +1,5 @@
 ﻿using SmartHome.Models;
 using SmartHome.Services;
-using SmartHome.Data;
 using System;
 
 namespace SmartHouseProject
@@ -9,42 +8,35 @@ namespace SmartHouseProject
     {
         static void Main()
         {
-            SmartHomeService homeService = new SmartHomeService();
+            SmartHomeService home = new SmartHomeService();
 
-            // Kreiranje uređaja
-            SmartLight light = new SmartLight("Dnevna soba - Svjetlo");
-            SmartThermostat thermostat = new SmartThermostat("Termostat", 22.5);
-            SmartOutlet outlet = new SmartOutlet("Pametna utičnica");
+            SmartLight svjetlo = new SmartLight("Svjetlo u dnevnoj");
+            SmartThermostat termostat = new SmartThermostat("Termostat", 22.5);
+            SmartOutlet uticnica = new SmartOutlet("Pametna utičnica");
 
-            // Dodavanje uređaja
-            homeService.AddDevice(light);
-            homeService.AddDevice(thermostat);
-            homeService.AddDevice(outlet);
+            home.AddDevice(svjetlo);
+            home.AddDevice(termostat);
+            home.AddDevice(uticnica);
 
-            // Kreiranje i dodavanje senzora
             TemperatureSensor tempSensor = new TemperatureSensor();
-            homeService.AddSensor(tempSensor);
+            home.AddSensor(tempSensor);
 
-            // Uključivanje uređaja
-            light.TurnOn();
-            light.SetBrightness(75);
+            svjetlo.TurnOn();
+            svjetlo.SetBrightness(75);
 
-            thermostat.TurnOn();
-            thermostat.SetTemperature(24.0);
+            termostat.TurnOn();
+            termostat.SetTemperature(24.0);
 
-            outlet.TurnOn();
-            outlet.SetPowerConsumption(150);
+            uticnica.TurnOn();
+            uticnica.SetPowerConsumption(150);
 
-            // Prikaz trenutnog statusa
-            homeService.ShowStatus();
+            home.ShowStatus();
 
-            // Resetovanje i isključivanje uređaja
-            light.ResetDevice();
-            thermostat.TurnOff();
-            outlet.TurnOff();
+            svjetlo.ResetDevice();
+            termostat.TurnOff();
+            uticnica.TurnOff();
 
-            // Prikaz ažuriranog statusa
-            homeService.ShowStatus();
+            home.ShowStatus();
         }
     }
 }

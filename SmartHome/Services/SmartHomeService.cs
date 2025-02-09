@@ -9,45 +9,45 @@ namespace SmartHome.Services
 {
     public class SmartHomeService
     {
-        private List<IDevice> devices = new List<IDevice>();
-        private List<ISensor> sensors = new List<ISensor>();
+        private List<IDevice> uredjaji = new List<IDevice>();
+        private List<ISensor> senzori = new List<ISensor>();
 
-        public void AddDevice(IDevice device)
+        public void AddDevice(IDevice uredjaj)
         {
-            devices.Add(device);
-            Console.WriteLine($"Dodano: {device.Name}");
+            uredjaji.Add(uredjaj);
+            Console.WriteLine($"Dodano: {uredjaj.nazivUredjaja}");
         }
 
-        public void RemoveDevice(IDevice device)
+        public void RemoveDevice(IDevice uredjaj)
         {
-            if (devices.Remove(device))
-                Console.WriteLine($"Uređaj {device.Name} je uklonjen.");
+            if (uredjaji.Remove(uredjaj))
+                Console.WriteLine($"Uređaj {uredjaj.nazivUredjaja} je uklonjen.");
         }
 
-        public void AddSensor(ISensor sensor)
+        public void AddSensor(ISensor senzor)
         {
-            sensors.Add(sensor);
-            Console.WriteLine($"Senzor '{sensor.SensorType}' je dodan.");
+            senzori.Add(senzor);
+            Console.WriteLine($"Senzor '{senzor.tipSenzora}' je dodan.");
         }
 
-        public void RemoveSensor(ISensor sensor)
+        public void RemoveSensor(ISensor senzor)
         {
-            if (sensors.Remove(sensor))
-                Console.WriteLine($"Senzor '{sensor.SensorType}' je uklonjen.");
+            if (senzori.Remove(senzor))
+                Console.WriteLine($"Senzor '{senzor.tipSenzora}' je uklonjen.");
         }
 
         public void ShowStatus()
         {
             Console.WriteLine("\nStatus uređaja:");
-            foreach (var device in devices)
+            foreach (var uredjaj in uredjaji)
             {
-                Console.WriteLine($"- {device.Name}: {(device.IsOn ? "Uključeno" : "Isključeno")}");
+                Console.WriteLine($"- {uredjaj.nazivUredjaja}: {(uredjaj.IsOn ? "Uključeno" : "Isključeno")}");
             }
 
             Console.WriteLine("\nVrijednosti senzora:");
-            foreach (var sensor in sensors)
+            foreach (var senzor in senzori)
             {
-                Console.WriteLine($"- {sensor.SensorType}: {sensor.GetValue()}°C");
+                Console.WriteLine($"- {senzor.tipSenzora}: {senzor.GetValue()}°C");
             }
         }
     }
